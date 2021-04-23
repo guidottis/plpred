@@ -16,3 +16,7 @@ $ make setup
 - `requirements.txt`: é similar ao environment, porém exclusivo para as bibliotecas do python e ferramentas do sistema que serão usadas no projeto.
 
 - `makefile`: usado para criar regras e encurtar comandos. 
+
+- `Pasta Data`: contém os dados brutos e os dados armazenados. Os dados brutos ficam na pasta raw enquanto os dados processados ficam na pasta processed. 
+
+- `Pasta Plpred`: diretório principal do pacote. Onde as funções de aplicação ficam armazenadas.
