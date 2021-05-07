@@ -56,7 +56,7 @@ print(__name__)
 if __name__ == "__main__":
 
     print('Preprocessing FASTA file: membrane proteins')
-    f_membrane = generate_aa_composition_df(file_path='data/raw/membrane.fasta', membrane_label=1)
+    df_membrane = generate_aa_composition_df(file_path='data/raw/membrane.fasta', membrane_label=1)
 
     print('Preprocessing FASTA file: cytoplasm protein')
     df_cytoplasm = generate_aa_composition_df(file_path='data/raw/cytoplasm.fasta', membrane_label=0)
@@ -64,4 +64,4 @@ if __name__ == "__main__":
     df_processed = pd.concat([df_membrane, df_cytoplasm])
     
     print('Saving processed DataFrame to file')
-    df_processed.to_csv('data/processed/precessed.csv', index=False)
+    df_processed.to_csv('data/processed/processed.csv', index=False)

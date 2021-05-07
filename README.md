@@ -20,3 +20,5 @@ $ make setup
 - `Pasta Data`: contém os dados brutos e os dados armazenados. Os dados brutos ficam na pasta raw enquanto os dados processados ficam na pasta processed. 
 
 - `Pasta Plpred`: diretório principal do pacote. Onde as funções de aplicação ficam armazenadas.
+
+-

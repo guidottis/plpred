@@ -7,3 +7,6 @@ run_exploratory_data_analysis:
 
 preprocessing:
 	python plpred/preprocessing.py
+
+training:
+		python plpred/training.py
