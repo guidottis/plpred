@@ -5,7 +5,7 @@ import pandas as pd
 from sklearn.metrics import classification_report
 import numpy as np
 
-class PlpredModel: 
+class BaseModel: 
     def __init__(self, estimator:BaseEstimator=RandomForestClassifier()):
         """
         Initialize the objetct. 
