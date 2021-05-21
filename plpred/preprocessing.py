@@ -1,6 +1,7 @@
 from Bio import SeqIO
 from Bio.SeqUtils import ProtParam 
 import pandas as pd
+import argparse 
 
 def compute_aa_composition(protein_sequence:str)->dict:
     """
@@ -51,17 +52,20 @@ def generate_aa_composition_df(file_path, membrane_label:int) -> pd.DataFrame:
         df = df.append([protein_data], ignore_index=True)
 
     return df
-print(__name__)
+
+def main():
+
+    argument_parser = argparse.ArgumentParser(description='Plpred-preprocess: data processing tool')
+    argument_parser.add_argument('-m', '--membrane_proteins', required=True, help='path to the file containing membrane proteins')
+    argument_parser.add_argument('-c', '--cytoplasm_proteins', required=True, help= 'path to the file containing cytoplasm proteins')
+    argument_parser.add_argument('-o', '--output', required=True, help='path to the output file (.csv)')
+    
+    arguments = argument_parser.parse_args()
+    
+    df_membrane = generate_aa_composition_df(file_path=arguments.membrane_proteins, membrane_label=1)
+    df_cytoplasm = generate_aa_composition_df(file_path=arguments.cytoplasm_proteins, membrane_label=0)
+    df_processed = pd.concat([df_membrane, df_cytoplasm])
+    df_processed.to_csv(arguments.output, index=False)
 
 if __name__ == "__main__":
-
-    print('Preprocessing FASTA file: membrane proteins')
-    df_membrane = generate_aa_composition_df(file_path='data/raw/membrane.fasta', membrane_label=1)
-
-    print('Preprocessing FASTA file: cytoplasm protein')
-    df_cytoplasm = generate_aa_composition_df(file_path='data/raw/cytoplasm.fasta', membrane_label=0)
-
-    df_processed = pd.concat([df_membrane, df_cytoplasm])
-    
-    print('Saving processed DataFrame to file')
-    df_processed.to_csv('data/processed/processed.csv', index=False)
+    main()

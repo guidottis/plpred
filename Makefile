@@ -6,10 +6,15 @@ run_exploratory_data_analysis:
 	&& jupyter nbconvet -- to html 'exploratory_data_analysis.ipynb'
 
 preprocessing:
-	python plpred/preprocessing.py
+	plpred-preprocess -m data/raw/membrane.fasta \
+	-c data/raw/cytoplasm.fasta \
+	-o data/processed/processed.csv
 
 training:
-		python plpred/training.py
+		plpred-train -p data/processed/processed.csv \
+		-o data/models/models.pickle \
+		-r 
 
 test:
 	python -m pytest
+
