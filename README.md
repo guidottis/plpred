@@ -26,3 +26,5 @@ $ make setup
 * SVM: baseado em regressão linear.
 * Neural Network: baseado em redes neurais.
 * Gradient Boostining: arvores de decisão (ensemble boosting).
+
+`test`: conjunto de testes unitários para os componentes do Plpred.
