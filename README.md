@@ -78,3 +78,17 @@ optional arguments:
   -a {random_forest,neural_network,gradient_boosting,svm}, --algorithm {random_forest,neural_network,gradient_boosting,svm}
                         machinle learning algothm
 ```
+### Plpred-server
+
+```
+ plpred-server [-h] -H HOST -p PORT -m MODEL
+
+plpred-server: subcellular location prediction server
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -H HOST, --host HOST  host address
+  -p PORT, --port PORT  host port
+  -m MODEL, --model MODEL
+                        trained model to be deployed
+```

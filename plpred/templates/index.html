@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plpred</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Plpred: a protein subcellular location prediction server</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <form action="/predict" method="POST">
+                    <div class="form-row">
+                        <div class="col-sm-12 mb-3">
+                            <div class="form-group">
+                                <label for="protein_sequence">Protein sequence:</label>
+                                <textarea class="form-control" id="protein_sequence" name="protein_sequence" 
+                                 placeholder="MADQQTTMPR..." rows=10 required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-12 mb-3">
+                            <div class="form-group">
+                                <input type="submit" value="submit!" class="btn btn-success"/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% if protein_location %}
+        <div class="row">
+            <div class="col-sm-12">
+                <hr>
+                <h2>Results</h2>
+                <div class="alert alert-info">
+                    Protein location: <strong>{{ protein_location }}</strong>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
