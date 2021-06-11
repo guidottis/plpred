@@ -4,6 +4,8 @@ By Isadora leitzke Guidotti
 
 a protein subcellular location prediction program 
 
+Available at: https://ilg-plpred.herokuapp.com/predict 
+
 ## Setup
 
 ```
